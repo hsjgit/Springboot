@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaojia.mapper.UserMapper">
+    <!--添加-->
+    <insert id="save">
+        INSERT INTO hsj(user,password) VALUE (#{user},#{password})
+    </insert>
+    <!--删除-->
+    <delete id="delete">
+        DELETE FROM hsj WHERE id = #{id}
+    </delete>
+    <!--更新-->
+    <update id="updata">
+        UPDATE hsj SET user = #{user} , password = #{password} WHERE id = #{id}
+    </update>
+    <!--查询单行-->
+    <select id="select" resultType="com.xiaojia.bean.User" >
+        SELECT * FROM hsj WHERE user = #{user} AND password = #{password}
+    </select>
+    <!--查询整张表-->
+    <select id="listall" resultType="com.xiaojia.bean.User">
+        SELECT user,password  FROM hsj
+    </select>
+</mapper>

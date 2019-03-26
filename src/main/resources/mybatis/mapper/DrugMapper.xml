@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaojia.mapper.DrugMapper">
+    <insert id="save">
+        INSERT INTO drug(num,price,name,code) VALUE (#{num},#{price},#{name},#{code})
+    </insert>
+    <update id="updata">
+        UPDATE drug
+        <set>
+            <if test="num!=null">
+                num=#{num},
+            </if>
+            <if test="price!=null">
+                price=#{price},
+            </if>
+            <if test="sales!=null">
+                sales=#{sales},
+            </if>
+            <if test="code!=null">
+                code=#{code},
+            </if>
+        </set>
+        WHERE name = #{name}
+    </update>
+    <delete id="delete">
+        DELETE FROM drug WHERE id = #{id}
+    </delete>
+    <select id="select" resultType="com.xiaojia.bean.Drug">
+        select * from drug where name = #{name}
+    </select>
+    <select id="listall" resultType="com.xiaojia.bean.Drug">
+        SELECT *  FROM drug
+    </select>
+</mapper>

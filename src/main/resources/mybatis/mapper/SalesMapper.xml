@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaojia.mapper.SalesMapper">
+    <!--添加-->
+    <insert id="save">
+        INSERT INTO sales(day,total) VALUE (#{day},#{total})
+    </insert>
+    <!--更新-->
+    <update id="updata">
+        UPDATE sales SET day = #{day} , total = #{total} WHERE day = #{day}
+    </update>
+    <!--查询单行-->
+    <select id="select" resultType="double" >
+        SELECT total FROM sales WHERE day = #{day}
+    </select>
+    <!--查询整张表-->
+    <select id="listall" resultType="double">
+        SELECT total FROM sales
+    </select>
+</mapper>
