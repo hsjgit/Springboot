@@ -45,9 +45,12 @@ public class DemoApplicationTests {
 	DrugSalesVolume volume;
 	@Autowired
 	XiaojiaService xiaojia;
+	@Autowired
+	private UserService userService;
+	@Autowired
 	@Test
 	public void contextLoads() {
-
+		System.out.println(userService.selece("1","1"));
 	}
 
 
